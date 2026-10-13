@@ -101,9 +101,9 @@ python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# 3. Set up environment variables
+# 3. Set up environment variables (Optional)
 cp .env.example .env
-# Edit .env — Reddit API credentials optional; dashboard works without it
+# Note: Core dashboard and intelligence features run out-of-the-box with SQLite.
 
 # 4. Run the data pipeline
 python collectors/pubchem_collector.py
@@ -118,24 +118,22 @@ streamlit run dashboard/app.py
 
 ---
 
-## Current Progress
+## Project Roadmap & Progress
 
-- ✅ 5-source data pipeline (329 ingredients)
-- ✅ SQLite with regulatory, chemical, sensory, and academic layers
-- ✅ 6-page Streamlit dashboard
-- ✅ Cosine similarity–based ingredient matching
-- ✅ Parfumo market analytics (59,325 perfumes)
-- 🔄 Reddit community signal (API key setup in progress)
-- 🔄 Streamlit Cloud deployment in progress
+### Phase 1: Core Foundation & Data Scale-Up (Completed ✅)
+- ✅ **Multi-Source ETL Pipeline**: Expanded from 66 curated items to 329 fragrance ingredients across 5 authoritative sources (PubChem, IFRA 51st, Pyrfume, Parfumo, Semantic Scholar).
+- ✅ **3-Tier Data Architecture**: Unified SQLite schema tracking provenance across Curated (olfactory evaluated), Mapped (chemical + sensory descriptors), and Registered (regulatory) tiers.
+- ✅ **Interactive 6-Page Streamlit Dashboard**: Integrated Material, Sensory, Usage, Occurrence, Similarity Matching, and Blend simulator.
+- ✅ **Market Analytics Engine**: Occurrence and co-occurrence patterns analyzed across 59,325 perfumes (Parfumo 2024 snapshot).
 
----
+### Phase 2: Refinement & Advanced Intelligence (In Progress 🔄)
+- 🔄 **Sensory Data Cleansing & NLP Enrichment**: Standardizing and harmonizing sensory descriptors across scaled ingredients.
+- 🔄 **Community Pulse Pipeline**: Robust RSS/API collection and trend extraction for r/fragrance signals.
+- 🔄 **Cloud Deployment**: Streamlit Cloud deployment and AWS migration planning (SQLite → RDS, Collectors → Lambda + EventBridge).
 
-## Future Work
-
-- AWS migration: SQLite → RDS, collectors → Lambda + EventBridge
-- AI-generated highlight quotes from personal sensory notes (Claude API)
-- Odor threshold visualization and GC-MS data integration
-- Reddit trend analysis (r/fragrance)
+### Phase 3: Future Enhancements (Planned 🚀)
+- AI-generated highlight quotes and sensory insights (Claude API)
+- Odor detection threshold modeling and GC-MS analytical data integration
 
 ---
 
