@@ -93,7 +93,7 @@ Streamlit Dashboard
 
 ```bash
 # 1. Clone
-git clone https://github.com/soneyabb/fragrance-platform.git
+git clone https://github.com/seonhye-choi/fragrance-platform.git
 cd fragrance-platform
 
 # 2. Install dependencies
